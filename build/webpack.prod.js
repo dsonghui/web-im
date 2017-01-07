@@ -3,7 +3,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         './sdk/dist/websdk-1.4.8': ['./sdk/index'],
-        './demo/javascript/dist/demo-1.4.8': ['./demo/javascript/src/entry'],
+        './kinwind/javascript/dist/demo-1.4.8': ['./kinwind/javascript/src/entry'],
         './webrtc/dist/webrtc-1.4.8': ['./webrtc/src/entry']
     },
     output: {
