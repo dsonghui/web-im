@@ -1,5 +1,5 @@
 var React = require("react");
-var SignIn = require('./sign/signin');
+var SignIn = require('./sign/signin_v2');
 var SignUp = require('./sign/signup');
 var Chat = require('./chat/chat');
 var Loading = require('./common/loading');
@@ -45,7 +45,7 @@ module.exports = React.createClass({
 
         return (
             <div>
-                <div className={'webim' + (WebIM.config.isWindowSDK ? ' webim_isWindowSDK' : '')}>
+                <div className={'webim' + (WebIM.config.isWindowSDK ? ' 00000' : '')}>
                     <div className={'webim-logo' + (!this.state.signIn && !this.state.signUp ? ' hide' : '')}>
                         <img src={'demo/images/logo' + (WebIM.config.isWindowSDK ? '-windowSDK' : '') + '.png'}/>
                     </div>

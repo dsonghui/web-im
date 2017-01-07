@@ -65,7 +65,30 @@ module.exports = React.createClass({
         var username = this.refs.name.refs.input.value || (WebIM.config.autoSignIn ? WebIM.config.autoSignInName : '');
         var auth = this.refs.auth.refs.input.value || (WebIM.config.autoSignIn ? WebIM.config.autoSignInPwd : '');
         var type = this.refs.token.refs.input.checked;
-        this.signin(username, auth, type);
+        var data = {
+            account:username,
+            pwd:auth
+        };
+        var _that = this;
+        WebIM.utils.ajax({
+            url:'http://hvapi.kinwind.com/healthvane/webimapi/login',
+            dataType:'json',
+            type:'post',
+            data: WebIM.utils.stringify(data) ,
+            success:function (response) {
+                if(response.status == 1 ){
+                    if(response.data.voipAccount && response.data.voipPwd ){
+                        _that.signin(response.data.voipAccount, response.data.voipPwd, type);
+                    }
+                }else{
+
+                }
+            },
+            error:function (error) {
+                console.log(error);
+            }
+        });
+        //this.signin(username, auth, type);
     },
 
     signin: function (username, auth, type) {
